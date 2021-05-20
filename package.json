@@ -1,0 +1,35 @@
+{
+  "name": "opsramp-grafana-integration",
+  "version": "1.0.0",
+  "description": "OpsRamp data source plugin for grafana dashboards",
+  "private": "true",
+  "scripts": {
+    "build": "grafana-toolkit plugin:build",
+    "test": "grafana-toolkit plugin:test",
+    "dev": "grafana-toolkit plugin:dev",
+    "watch": "grafana-toolkit plugin:dev --watch",
+    "sign": "grafana-toolkit plugin:sign",
+    "start": "yarn watch"
+  },
+  "author": "Mekala Omkareswara rao",
+  "license": "Opsramp Inc",
+  "devDependencies": {
+    "@grafana/data": "7.5.4",
+    "@grafana/runtime": "7.5.4",
+    "@grafana/toolkit": "7.5.4",
+    "@grafana/ui": "7.5.4",
+    "@types/lodash": "4.14.146",
+    "@types/react": "16.9.23",
+    "@types/react-dom": "16.9.5",
+    "immutable": "3.8.1",
+    "react": "16.13.0",
+    "react-dom": "16.13.0",
+    "slate": "0.47.0",
+    "slate-react": "0.22.0",
+    "prismjs": "1.23.0"
+  },
+  "dependencies": {},
+  "engines": {
+    "node": ">=14"
+  }
+}

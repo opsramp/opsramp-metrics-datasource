@@ -1,0 +1,56 @@
+{
+  "$schema": "https://raw.githubusercontent.com/grafana/grafana/master/docs/sources/developers/plugins/plugin.schema.json",
+  "type": "datasource",
+  "name": "OpsRamp",
+  "id": "opsramp-metrics-datasource",
+  "metrics": true,
+
+  "info": {
+    "description": "OpsRamp Integration & data source",
+    "author": {
+      "name": "OpsRamp Inc",
+      "url": "https://www.opsramp.com"
+    },
+    "keywords": ["Simple"],
+    "logos": {
+      "small": "img/icon_opsramp.svg",
+      "large": "img/icon_opsramp.svg"
+    },
+    "links": [
+      { "name": "Website", "url": "https://github.com/grafana/grafana-starter-datasource" },
+      { "name": "License", "url": "https://github.com/grafana/grafana-starter-datasource/blob/master/LICENSE" }
+    ],
+    "screenshots": [
+                    {"name": "Configuration", "path": "img/configuration.png"},
+                    {"name": "QueryEditor", "path": "img/queryeditor.png"},
+                    {"name": "SampleDashboard", "path": "img/sampledashboard.png"}
+                   ],
+    "version": "1.0.0",
+    "updated": "2021-05-12"
+  },
+  "routes":[
+    {
+      "path": "metricql",
+      "method": "GET",
+      "url": "{{.JsonData.directUrl}}",
+      "tokenAuth": {
+        "url": "{{.JsonData.directUrl}}/tenancy/auth/oauth/token",
+        "params": {
+          "grant_type": "client_credentials",
+          "client_id": "{{ .JsonData.client_id}}",
+          "client_secret": "{{ .SecureJsonData.apiSecret}}",
+          "resource": "{{.JsonData.directUrl}}/metricsql"
+        }
+      }
+    },
+    {
+      "path":"tenancy",
+      "url":"{{.JsonData.directUrl}}"
+    }
+],
+
+  "dependencies": {
+    "grafanaDependency": ">=7.0.0",
+    "plugins": []
+  }
+}
