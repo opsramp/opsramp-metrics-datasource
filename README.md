@@ -31,4 +31,8 @@ To visualize OpsRamp metrics the following are the configurable sections.
 #### Sample dashboard
 ![SampleDashboard](https://opsramp-grafana-plugin.s3.us-east-2.amazonaws.com/opsramp-metric-plugin/images/dashboard.png)
 
-## Change Log
+## Deployment in Docker
+yarn install
+yarn build
+docker run -d -p 3000:3000 -v "$(pwd)"/grafana-starter-datasource:/var/lib/grafana/plugins --name=grafana grafana/grafana:7.5.3
+
