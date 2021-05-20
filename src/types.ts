@@ -12,7 +12,7 @@
 import { DataQuery, DataSourceJsonData, SelectableValue } from '@grafana/data';
 import _ from 'lodash';
 
-export interface Query extends DataQuery { 
+export interface Query extends DataQuery {
   query?: string;
   requestId?: string;
   step: string;
